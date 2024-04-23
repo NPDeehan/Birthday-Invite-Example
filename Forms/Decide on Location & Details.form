@@ -1,0 +1,150 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "f22cba6"
+  },
+  "schemaVersion": 16,
+  "id": "decide-on-location-details-0dcnwq5",
+  "components": [
+    {
+      "text": "### Birthday Party Setup",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Party Details",
+      "type": "text",
+      "id": "Subheading_1",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Name of the Birthday Person",
+      "validate": {
+        "required": true
+      },
+      "key": "birthdayPersonName",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date of the Party",
+      "type": "datetime",
+      "id": "Date_3",
+      "validate": {
+        "required": true
+      },
+      "key": "partyDate",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "time",
+      "dateLabel": "Date",
+      "type": "datetime",
+      "id": "Time_4",
+      "timeLabel": "Start Time of the Party",
+      "validate": {
+        "required": true
+      },
+      "key": "startTime",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      },
+      "timeInterval": 15
+    },
+    {
+      "values": [
+        {
+          "value": "Indoor",
+          "label": "Indoor"
+        },
+        {
+          "value": "Outdoor",
+          "label": "Outdoor"
+        }
+      ],
+      "type": "select",
+      "id": "Select_5",
+      "label": "Location of the Party",
+      "validate": {
+        "required": true
+      },
+      "key": "partyLocation",
+      "layout": {
+        "row": "row_3",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Guest List",
+      "type": "text",
+      "id": "Subheading_6",
+      "layout": {
+        "row": "row_4",
+        "columns": null
+      }
+    },
+    {
+      "components": [
+        {
+          "label": "Guest Name",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0w352zo",
+            "columns": null
+          },
+          "id": "Field_0cygei1",
+          "key": "guestName",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "label": "Guest Email",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0w352zo",
+            "columns": null
+          },
+          "id": "Field_0nv9571",
+          "key": "guestEmail",
+          "validate": {
+            "validationType": "email",
+            "required": true
+          }
+        }
+      ],
+      "showOutline": true,
+      "isRepeating": true,
+      "allowAddRemove": true,
+      "defaultRepetitions": 1,
+      "label": "Guest list",
+      "type": "dynamiclist",
+      "layout": {
+        "row": "Row_02c3yze",
+        "columns": null
+      },
+      "id": "Field_03w9c3r",
+      "path": "guests"
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}

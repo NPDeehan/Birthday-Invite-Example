@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f140ca4" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="fa4e3f86-f4ce-475e-94ec-b710dd663d7d">
+  <bpmn:process id="Birthday" name="Birthday invite" isExecutable="true">
+    <bpmn:userTask id="Activity_1er0rqc" name="Decide on Location &#38; Details">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="decide-on-location-details-0dcnwq5" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_04bw3rj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0scdq4f</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1s7gf84" name="Go enjoy the birthday">
+      <bpmn:incoming>Flow_13vrypl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_13vrypl" sourceRef="Event_18l5vj3" targetRef="Event_1s7gf84" />
+    <bpmn:intermediateCatchEvent id="Event_18l5vj3" name="Wait until Day of Birthday">
+      <bpmn:incoming>Flow_17g07vm</bpmn:incoming>
+      <bpmn:outgoing>Flow_13vrypl</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1jjlifu">
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">=date(partyDate)</bpmn:timeDate>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:serviceTask id="Activity_0wz6in0" name="Inform Work you wont be around" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="3" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI3IiBoZWlnaHQ9IjEyNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNMjcuMiA4MGMwIDcuMy01LjkgMTMuMi0xMy4yIDEzLjJDNi43IDkzLjIuOCA4Ny4zLjggODBjMC03LjMgNS45LTEzLjIgMTMuMi0xMy4yaDEzLjJWODB6bTYuNiAwYzAtNy4zIDUuOS0xMy4yIDEzLjItMTMuMiA3LjMgMCAxMy4yIDUuOSAxMy4yIDEzLjJ2MzNjMCA3LjMtNS45IDEzLjItMTMuMiAxMy4yLTcuMyAwLTEzLjItNS45LTEzLjItMTMuMlY4MHoiIGZpbGw9IiNFMDFFNUEiLz4KICA8cGF0aCBkPSJNNDcgMjdjLTcuMyAwLTEzLjItNS45LTEzLjItMTMuMkMzMy44IDYuNSAzOS43LjYgNDcgLjZjNy4zIDAgMTMuMiA1LjkgMTMuMiAxMy4yVjI3SDQ3em0wIDYuN2M3LjMgMCAxMy4yIDUuOSAxMy4yIDEzLjIgMCA3LjMtNS45IDEzLjItMTMuMiAxMy4ySDEzLjlDNi42IDYwLjEuNyA1NC4yLjcgNDYuOWMwLTcuMyA1LjktMTMuMiAxMy4yLTEzLjJINDd6IiBmaWxsPSIjMzZDNUYwIi8+CiAgPHBhdGggZD0iTTk5LjkgNDYuOWMwLTcuMyA1LjktMTMuMiAxMy4yLTEzLjIgNy4zIDAgMTMuMiA1LjkgMTMuMiAxMy4yIDAgNy4zLTUuOSAxMy4yLTEzLjIgMTMuMkg5OS45VjQ2Ljl6bS02LjYgMGMwIDcuMy01LjkgMTMuMi0xMy4yIDEzLjItNy4zIDAtMTMuMi01LjktMTMuMi0xMy4yVjEzLjhDNjYuOSA2LjUgNzIuOC42IDgwLjEuNmM3LjMgMCAxMy4yIDUuOSAxMy4yIDEzLjJ2MzMuMXoiIGZpbGw9IiMyRUI2N0QiLz4KICA8cGF0aCBkPSJNODAuMSA5OS44YzcuMyAwIDEzLjIgNS45IDEzLjIgMTMuMiAwIDcuMy01LjkgMTMuMi0xMy4yIDEzLjItNy4zIDAtMTMuMi01LjktMTMuMi0xMy4yVjk5LjhoMTMuMnptMC02LjZjLTcuMyAwLTEzLjItNS45LTEzLjItMTMuMiAwLTcuMyA1LjktMTMuMiAxMy4yLTEzLjJoMzMuMWM3LjMgMCAxMy4yIDUuOSAxMy4yIDEzLjIgMCA3LjMtNS45IDEzLjItMTMuMiAxMy4ySDgwLjF6IiBmaWxsPSIjRUNCMjJFIi8+Cjwvc3ZnPgo=">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:slack:1" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="{{secrets.HawkSlack}}" target="token" />
+          <zeebe:input source="chat.postMessage" target="method" />
+          <zeebe:input source="plainText" target="data.messageType" />
+          <zeebe:input source="=&#34;I&#39;m having a birthday party &#34; +partyLocation + &#34; so i wont be around&#34;" target="data.text" />
+          <zeebe:input source="#hawk-selling" target="data.channel" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="response" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1gxwjz2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1de15xr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1" name="Birthday is coming up">
+      <bpmn:outgoing>Flow_04bw3rj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_04bw3rj" sourceRef="StartEvent_1" targetRef="Activity_1er0rqc" />
+    <bpmn:parallelGateway id="Gateway_0bg9q8v">
+      <bpmn:incoming>Flow_0scdq4f</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gxwjz2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0qjmue8</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_0scdq4f" sourceRef="Activity_1er0rqc" targetRef="Gateway_0bg9q8v" />
+    <bpmn:sequenceFlow id="Flow_1gxwjz2" sourceRef="Gateway_0bg9q8v" targetRef="Activity_0wz6in0" />
+    <bpmn:parallelGateway id="Gateway_17wci1m">
+      <bpmn:incoming>Flow_1de15xr</bpmn:incoming>
+      <bpmn:incoming>Flow_1cgbj4n</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ofqr1m</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_1de15xr" sourceRef="Activity_0wz6in0" targetRef="Gateway_17wci1m" />
+    <bpmn:sequenceFlow id="Flow_1ofqr1m" sourceRef="Gateway_17wci1m" targetRef="Activity_0rf9o19" />
+    <bpmn:serviceTask id="Activity_13kbpfx" name="Send out Invites" zeebe:modelerTemplate="io.camunda.connectors.SendGrid.v2" zeebe:modelerTemplateVersion="3" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wLjI4NTcwNiA1LjQwODQ3SDUuNDM4MzdWMTAuNTYxMUgwLjI4NTcwNlY1LjQwODQ3WiIgZmlsbD0id2hpdGUiLz4KICAgIDxwYXRoIGQ9Ik0wLjI4NTcwNiA1LjQwODQ3SDUuNDM4MzdWMTAuNTYxMUgwLjI4NTcwNlY1LjQwODQ3WiIgZmlsbD0iIzk5RTFGNCIvPgogICAgPHBhdGggZD0iTTUuNDM4MzcgMTAuNTYxMUwxMC41NjExIDEwLjU2MTZWMTUuNjg0NEg1LjQzODM3VjEwLjU2MTFaIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTTUuNDM4MzcgMTAuNTYxMUwxMC41NjExIDEwLjU2MTZWMTUuNjg0NEg1LjQzODM3VjEwLjU2MTFaIiBmaWxsPSIjOTlFMUY0Ii8+CiAgICA8cGF0aCBkPSJNMC4yODU3MDYgMTUuNjg0Nkw1LjQzODM3IDE1LjY4NDRWMTUuNzE0M0gwLjI4NTcwNlYxNS42ODQ2Wk0wLjI4NTcwNiAxMC41NjE5SDUuNDM4MzdWMTUuNjg0NEwwLjI4NTcwNiAxNS42ODQ2VjEwLjU2MTlaIiBmaWxsPSIjMUE4MkUyIi8+CiAgICA8cGF0aCBkPSJNNS40MzgzNyAwLjI4NTcwNkgxMC41NjExVjUuNDA4NDdINS40MzgzN1YwLjI4NTcwNlpNMTAuNTYxNiA1LjQzODM3SDE1LjcxNDNWMTAuNTYxMUgxMC41NjE2VjUuNDM4MzdaIiBmaWxsPSIjMDBCM0UzIi8+CiAgICA8cGF0aCBkPSJNNS40MzgzNyAxMC41NjExTDEwLjU2MTEgMTAuNTYxNlY1LjQwODQ3SDUuNDM4MzdWMTAuNTYxMVoiIGZpbGw9IiMwMDlERDkiLz4KICAgIDxwYXRoIGQ9Ik0xMC41NjExIDAuMjg1NzA2SDE1LjcxNDNWNS40MDg0N0gxMC41NjExVjAuMjg1NzA2WiIgZmlsbD0iIzFBODJFMiIvPgogICAgPHBhdGggZD0iTTEwLjU2MTEgNS40MDg0N0gxNS43MTQzVjUuNDM4MzdIMTAuNTYxNkwxMC41NjExIDUuNDA4NDdaIiBmaWxsPSIjMUE4MkUyIi8+Cjwvc3ZnPg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:sendgrid:1" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="{{secrets.SendGrid}}" target="apiKey" />
+          <zeebe:input source="Niall" target="from.name" />
+          <zeebe:input source="Community@camunda.com" target="from.email" />
+          <zeebe:input source="=guest.guestName" target="to.name" />
+          <zeebe:input source="=guest.guestEmail" target="to.email" />
+          <zeebe:input source="mail" target="unMappedFieldNotUseInModel.mailType" />
+          <zeebe:input source="Birthday Invite" target="content.subject" />
+          <zeebe:input source="text/plain" target="content.type" />
+          <zeebe:input source="=&#34;Happy birthday&#34;" target="content.value" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" />
+          <zeebe:header key="resultExpression" />
+          <zeebe:header key="errorExpression" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0qjmue8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cgbj4n</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics>
+        <bpmn:extensionElements>
+          <zeebe:loopCharacteristics inputCollection="=guests" inputElement="guest" />
+        </bpmn:extensionElements>
+      </bpmn:multiInstanceLoopCharacteristics>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0qjmue8" sourceRef="Gateway_0bg9q8v" targetRef="Activity_13kbpfx" />
+    <bpmn:sequenceFlow id="Flow_1cgbj4n" sourceRef="Activity_13kbpfx" targetRef="Gateway_17wci1m" />
+    <bpmn:sequenceFlow id="Flow_17g07vm" sourceRef="Activity_0rf9o19" targetRef="Event_18l5vj3" />
+    <bpmn:scriptTask id="Activity_0rf9o19" name="Play with time">
+      <bpmn:extensionElements>
+        <zeebe:script expression="=&#10;partyDate + &#34;T&#34; + startTime +&#34;:00&#34;" resultVariable="birthdayDateTime" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ofqr1m</bpmn:incoming>
+      <bpmn:outgoing>Flow_17g07vm</bpmn:outgoing>
+    </bpmn:scriptTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Birthday">
+      <bpmndi:BPMNShape id="Activity_1er0rqc_di" bpmnElement="Activity_1er0rqc">
+        <dc:Bounds x="290" y="208" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1s7gf84_di" bpmnElement="Event_1s7gf84">
+        <dc:Bounds x="1092" y="230" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1079" y="273" width="62" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_04obc1y_di" bpmnElement="Event_18l5vj3">
+        <dc:Bounds x="992" y="230" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="971" y="273" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0woqlr4_di" bpmnElement="Activity_0wz6in0">
+        <dc:Bounds x="570" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1s4dw37_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="230" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="156" y="273" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0bg9q8v_di" bpmnElement="Gateway_0bg9q8v">
+        <dc:Bounds x="465" y="223" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_17wci1m_di" bpmnElement="Gateway_17wci1m">
+        <dc:Bounds x="725" y="223" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13kbpfx_di" bpmnElement="Activity_13kbpfx">
+        <dc:Bounds x="570" y="208" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1mfi0f2_di" bpmnElement="Activity_0rf9o19">
+        <dc:Bounds x="830" y="208" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_13vrypl_di" bpmnElement="Flow_13vrypl">
+        <di:waypoint x="1028" y="248" />
+        <di:waypoint x="1092" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04bw3rj_di" bpmnElement="Flow_04bw3rj">
+        <di:waypoint x="218" y="248" />
+        <di:waypoint x="290" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0scdq4f_di" bpmnElement="Flow_0scdq4f">
+        <di:waypoint x="390" y="248" />
+        <di:waypoint x="465" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gxwjz2_di" bpmnElement="Flow_1gxwjz2">
+        <di:waypoint x="490" y="223" />
+        <di:waypoint x="490" y="120" />
+        <di:waypoint x="570" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1de15xr_di" bpmnElement="Flow_1de15xr">
+        <di:waypoint x="670" y="120" />
+        <di:waypoint x="750" y="120" />
+        <di:waypoint x="750" y="223" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ofqr1m_di" bpmnElement="Flow_1ofqr1m">
+        <di:waypoint x="775" y="248" />
+        <di:waypoint x="830" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qjmue8_di" bpmnElement="Flow_0qjmue8">
+        <di:waypoint x="515" y="248" />
+        <di:waypoint x="570" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cgbj4n_di" bpmnElement="Flow_1cgbj4n">
+        <di:waypoint x="670" y="248" />
+        <di:waypoint x="725" y="248" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17g07vm_di" bpmnElement="Flow_17g07vm">
+        <di:waypoint x="930" y="248" />
+        <di:waypoint x="992" y="248" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
